@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#define LEN_NOTEBOOK 3
+#define NOTEBOOK 3
 
 typedef struct
 {
@@ -28,21 +28,21 @@ int main()
     printf("El precio con descuento es: %.2f\n", resultadoConDescuento);
     printf("\n\n");
 
-    char frase[]="Hola como estas";
+    char frase[]="Hola como esta usted hoy";
     printf("%s\n", frase);
-    printf("La frase tiene %d cantidad de o\n", contarCaracteres(frase, 'o'));
+    printf("La frase tiene %d cantidad de a\n", contarCaracteres(frase, 'a'));
     printf("\n\n");
 
-    eNotebook notebooks[LEN_NOTEBOOK] =
+    eNotebook notebooks[NOTEBOOK] =
     {
         {1000, "I5", "INTEL", 25000.75},
         {1000, "I9", "INTEL", 40000.75},
         {1001, "I9", "IBM", 80000.89},
     };
 
-    printNotebooks(notebooks, LEN_NOTEBOOK);
-    sortNotebooks(notebooks, LEN_NOTEBOOK);
-    printNotebooks(notebooks, LEN_NOTEBOOK);
+    printNotebooks(notebooks, NOTEBOOK);
+    sortNotebooks(notebooks, NOTEBOOK);
+    printNotebooks(notebooks, NOTEBOOK);
 
     return 0;
 }
