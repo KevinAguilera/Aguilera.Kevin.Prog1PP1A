@@ -12,32 +12,17 @@ typedef struct
     float precio;
 } eNotebook;
 
-void aplicarDescuento(float precio, float* resultado);
-int contarCaracteres(char* cadena, char caracter);
 int sortNotebooks(eNotebook* list, int len);
-void showNotebook(eNotebook computadora);
+void showNotebook(eNotebook compu);
 int printNotebooks(eNotebook* list, int len);
-
 
 int main()
 {
-    float precio = 100;
-    float resultadoConDescuento;
-    aplicarDescuento(precio, &resultadoConDescuento);
-    printf("El precio es: %.2f\n", precio);
-    printf("El precio con descuento es: %.2f\n", resultadoConDescuento);
-    printf("\n\n");
-
-    char frase[]="Hola como esta usted hoy";
-    printf("%s\n", frase);
-    printf("La frase tiene %d cantidad de a\n", contarCaracteres(frase, 'a'));
-    printf("\n\n");
-
     eNotebook notebooks[NOTEBOOK] =
     {
-        {1000, "I5", "INTEL", 25000.75},
-        {1000, "I9", "INTEL", 40000.75},
-        {1001, "I9", "IBM", 80000.89},
+        {1000, "I5", "NVIDIA", 12345.75},
+        {1000, "I9", "INTEL", 23456.75},
+        {1001, "I9", "ASUS", 43450.89},
     };
 
     printNotebooks(notebooks, NOTEBOOK);
@@ -45,27 +30,6 @@ int main()
     printNotebooks(notebooks, NOTEBOOK);
 
     return 0;
-}
-
-void aplicarDescuento(float precio, float* resultado)
-{
-    float porcentaje;
-    porcentaje = (precio * 5) / 100;
-    *resultado = precio - porcentaje;
-}
-
-int contarCaracteres(char* cadena, char caracter)
-{
-    int lenCadena = strlen(cadena);
-    int contarCaracter = 0;
-    for(int i = 0; i < lenCadena; i++)
-    {
-        if(cadena[i] == caracter)
-        {
-            contarCaracter++;
-        }
-    }
-    return contarCaracter;
 }
 
 int sortNotebooks(eNotebook* list, int len)
@@ -100,14 +64,13 @@ int sortNotebooks(eNotebook* list, int len)
     return error;
 }
 
-
 int printNotebooks(eNotebook* list, int len)
 {
     if(list != NULL && len > 0 && len <= 10)
     {
         printf("******************************************************************\n");
         printf("  ID            PROCESADOR           MARCA              PRECIO\n");
-        printf("******************************************************************\n");
+        
         for(int i = 0; i < len; i++)
         {
                 showNotebook(list[i]);
@@ -118,12 +81,12 @@ int printNotebooks(eNotebook* list, int len)
     return -1;
 }
 
-void showNotebook(eNotebook computadora)
+void showNotebook(eNotebook compu)
 {
     printf("%6d %15s            %8s              $%4.2f\n",
-           computadora.id,
-           computadora.procesador,
-           computadora.marca,
-           computadora.precio
+           compu.id,
+           compu.procesador,
+           compu.marca,
+           compu.precio
           );
 }
