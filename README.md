@@ -1,1 +1,1 @@
-Primer parcial programacion 1
+Parcial 1 Programacion 1
